@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="principal">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clima das cidades Brasileiras</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Clima do Brasil</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Cidades</a></li>
+            <li><a href="previsao.html">Previsão</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container" ng-controller="indexController as cont">
+      <div class="row">
+        <div class="col-md-4">Cidades</div>
+        <div class="col-md-6">Previsão</div>
+      </div>       
+      <div class="row">
+        <div class="col-md-4">
+          <div id="divcidades" class="list-group">
+            <a id="selcidade1" class="list-group-item" ng-click="cont.selecionar('Rio de Janeiro')">
+              Rio de Janeiro</a>
+            <a id="selcidade2" class="list-group-item" ng-click="cont.selecionar('São Paulo')">
+              São Paulo</a>
+            <a id="selcidade3" class="list-group-item" ng-click="cont.selecionar('Brasília')">
+              Brasília</a>
+          </div>        
+        </div>
+        <div class="col-md-6">
+          <div class="jumbotron">
+            <h1 id="titulo">{{cont.cidade}}</h1>
+            <p id="previsao">{{cont.previsao}}</p>
+            <div ng-show="cont.mensagem !== null">
+              <p>{{cont.mensagem}}</p>
+            </div>
+          </div>
+        </div>
+      </div>       
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- bootbox code -->
+    <script src="js/bootbox.min.js"></script>
+
+    <!-- Nossos javascripts -->
+    <script src="js/app.js"></script>
+    <script src="js/conversorService.js"></script>
+    <script src="js/previsaoService.js"></script>    
+    <script src="js/indexController.js"></script>
+  </body>
+</html>
